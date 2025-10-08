@@ -1,0 +1,29 @@
+# Configuration for Newspaper Processing Pipeline
+paths:
+  input_dir: "data/input"
+  output_dir: "data/output"
+  pages_file: "data/output/pages.jsonl"
+  entities_file: "data/output/entities.jsonl"
+
+api:
+  host: "0.0.0.0"
+  port: 7070
+  reload: true
+
+logging:
+  level: "INFO"
+  format: "[%(asctime)s][%(levelname)s] [%(name)s] %(message)s"
+  date_format: "%Y-%m-%d %H:%M:%S"
+
+ner:
+  model: "fr_core_news_sm"
+  entity_types: ["PERSON", "ORG"]
+  confidence_threshold: 0.7
+
+search:
+  index_dir: "data/search_index"
+  semantic_model: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+
+ocr:
+  tesseract_path: null  # Will use system PATH by default
+  languages: ["fra", "ara"]  # French and Arabic
